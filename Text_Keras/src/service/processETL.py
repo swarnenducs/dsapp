@@ -77,7 +77,7 @@ class ProcessData:
 
             else:
 
-                print("ENTERING NEW ENTRY index : " ,i)
+                #print("ENTERING NEW ENTRY index : " ,i)
                 problemid = dfB['problemID'][ind]
                 problemIDList.insert(i, dfB['problemID'][ind])
                 ContextsList.insert(i, dfB['Contexts'][ind])
