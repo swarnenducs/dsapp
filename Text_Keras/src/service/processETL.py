@@ -112,7 +112,7 @@ class ProcessData:
         }
 
         processData= pd.DataFrame.from_dict(dataDict)
-        processData.to_csv('file1.csv',index=False)
+        processData.to_csv('./src/Staging/master_file.csv',index=False)
 
 
         return None
