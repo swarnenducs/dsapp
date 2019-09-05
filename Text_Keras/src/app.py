@@ -2,7 +2,9 @@ import flask
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask , render_template, request
-from src.model.models import *
+from src.model.models import Dataclassified,db
+from src.service.mainETL import MainETLProcess
+
 
 
 
@@ -35,6 +37,15 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     return 'Hello World!'
+
+@app.route('/app/info')
+def process():
+    #Creating ETL PROCESS OBJECT
+    etl = MainETLProcess()
+    etl._processData_()
+    return "status:200"
+
+
 
 
 
