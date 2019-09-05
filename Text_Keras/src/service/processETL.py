@@ -13,6 +13,7 @@
 
 
 import  pandas as pd
+from src.service.nlpService.NlpServiceImpl import  *
 
 
 
@@ -49,6 +50,7 @@ class ProcessData:
         TitleList=[]
         SourceList=[]
         MachineClassificationList=[]
+        tokenList=[]
         i=0
 
 
@@ -91,6 +93,11 @@ class ProcessData:
 
 
 
+        nlpProcess= NlpServiceImpl()
+        for sentens in SourceList:
+            token=nlpProcess.processKeyWOrd(sentens)
+            tokenList.append(token)
+
 
         print("SENTENCE  ----",Sentencelist)
         dataDict={
@@ -100,6 +107,7 @@ class ProcessData:
             'Contexts':ContextsList,
             'Source':SourceList,
             'Sentence':Sentencelist,
+            'KeyWOrd':tokenList,
             'MachineClassification':MachineClassificationList
         }
 
@@ -108,6 +116,8 @@ class ProcessData:
 
 
         return None
+
+
 
 
 
